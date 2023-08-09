@@ -1,0 +1,61 @@
+﻿@model ViewModels.Models.SchoolViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@if (Model.MyStudents.Any())
+{
+    <h2>Student List</h2>
+    <table class="table  table-striped table-responsive-md ">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Standard</th>
+        </tr>
+        <tr>
+            @{foreach (var item in Model.MyStudents)
+            {
+                     <tr>
+                <th>@Html.DisplayFor(modelitem=>item.Id)</th>
+                <th>@Html.DisplayFor(modelitem=>item.Name)</th>
+                <th>@Html.DisplayFor(modelitem=>item.Gender)</th>
+                <th>@Html.DisplayFor(modelitem=>item.Standard)</th>
+                     </tr>
+            }
+            }
+       <tr/>
+    </table>
+}
+
+@if (Model.MyTeachers.Any())
+{
+    <h2>Teachers List</h2>
+    <table class="table  table-striped table-responsive-md ">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Standard</th>
+        </tr>
+        <tr>
+            @{
+                foreach (var item in Model.MyTeachers)
+                {
+                <tr>
+                    <th>@Html.DisplayFor(modelitem=>item.Id)</th>
+                    <th>@Html.DisplayFor(modelitem=>item.Name)</th>
+                    <th>@Html.DisplayFor(modelitem=>item.Qualification)</th>
+                    <th>@Html.DisplayFor(modelitem=>item.Salary)</th>
+                </tr>
+                }
+            }
+        <tr />
+    </table>
+}
+
